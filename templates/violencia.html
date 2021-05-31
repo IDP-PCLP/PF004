@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Meta tags para o Bootstrap -->
+    <meta charset="utf-8">
+    <!-- Formatado preferencialmente para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Cidadão DF - Violência</title>
+  </head>
+  <body>
+ 
+   <form method="POST" action="" enctype="multipart/form-data">
+       {{ form.hidden_tag() }}
+      <div class="form-group">
+	{{ form.picture.label() }}
+	{{ form.picture(class="form-control-file") }}
+	{% if form.picture.errors %}
+	{% for error in form.picture.errors %}
+	<span class="text-danger">{{ error }}</span></br>
+	{% endfor %}
+	{% endif %}
+      </div>
+      <div class="form-group">
+	{{ form.submit(class="btn btn-outline-dark") }}
+      </div>
+  </form>
+
+  </body>
+  
+</html>
