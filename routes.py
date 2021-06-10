@@ -44,9 +44,14 @@ def index():
 def lixo(): 
     return render_template('lixo.html')
 
-@app.route('/esgotoAgua')
+@app.route('/esgotoAgua', methods=['GET','POST'])
 def esgotoAgua(): 
-    return render_template('esgotoAgua.html')
+    form = EnviarForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+        return render_template('index.html')
+    return render_template('esgotoAgua.html',form=form)
 
 @app.route('/estruturasPublicas')
 def estruturasPublicas(): 
@@ -70,6 +75,9 @@ def violencia():
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para violência.' + picture_file)
+            arquivo.close()
         return render_template('index.html')
 
     return render_template('violencia.html',form=form)
