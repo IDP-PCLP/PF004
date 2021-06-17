@@ -1,30 +1,12 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- Meta tags para o Bootstrap -->
-    <meta charset="utf-8">
-    <!-- Formatado preferencialmente para dispositivos móveis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "layout.html" %}
 
-    <!-- CSS do Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+{% block title %} Cidadão DF {% endblock %}
 
-    <title>Cidadão DF</title>
-    
-  </head>
+{% block content %}
+<div class="container">
+    <div class="col">
 
-  <body>
-    <a href={{ url_for('esgotoAgua') }}><input type="button" value="Esgoto e Água"></a>
-    <a href={{ url_for('estruturasPublicas') }}><input type="button" value="Estruturas Públicas"></a>
-    <a href={{ url_for('seguranca') }}><input type="button" value="Segurança"></a>
-    <a href={{ url_for('transporte') }}><input type="button" value="Transporte"></a>
-    <a href={{ url_for('viasPublicas') }}><input type="button" value="Vias Públicas"></a>
-    <a href={{ url_for('violencia') }}><input type="button" value="Violência"></a>
-    <a href={{ url_for('lixo') }}><input type="button" value="Lixo"></a>
-
-  </body>
-  
-</html>
-
-
+    <p> Cidadão DF </p>
+    </div>
+</div>
+{% endblock %}

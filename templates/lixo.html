@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %} Cidadão DF - Lixo{% endblock %}
+{% block content %}  
+   <form method="POST" action="" enctype="multipart/form-data">
+       {{ form.hidden_tag() }}
+      <div class="form-group">
+	{{ form.picture.label() }}
+	{{ form.picture(class="form-control-file") }}
+	{% if form.picture.errors %}
+	{% for error in form.picture.errors %}
+	<span class="text-danger">{{ error }}</span></br>
+	{% endfor %}
+	{% endif %}
+      </div>
+      <div class="form-group">
+	{{ form.submit(class="btn btn-outline-dark") }}
+      </div>
+  </form>
+  {% endblock %}

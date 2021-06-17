@@ -1,17 +1,7 @@
-<!doctype html>
-<html>
-  <head>
-    <!-- Meta tags para o Bootstrap -->
-    <meta charset="utf-8">
-    <!-- Formatado preferencialmente para dispositivos móveis -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "layout.html" %}
 
-    <!-- CSS do Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Cidadão DF - Esgoto e Água</title>
-  </head>
-  <body>
- 
+{% block title %} Cidadão DF - Esgoto e Água{% endblock %}
+{% block content %}  
    <form method="POST" action="" enctype="multipart/form-data">
        {{ form.hidden_tag() }}
       <div class="form-group">
@@ -27,7 +17,4 @@
 	{{ form.submit(class="btn btn-outline-dark") }}
       </div>
   </form>
-
-  </body>
-  
-</html>
+  {% endblock %}

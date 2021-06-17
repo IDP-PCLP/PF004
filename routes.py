@@ -42,7 +42,15 @@ def index():
 
 @app.route('/lixo')
 def lixo(): 
-    return render_template('lixo.html')
+    form = EnviarForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para lixo.' + picture_file)
+            arquivo.close()
+        return render_template('index.html')
+    return render_template('lixo.html',form=form)
 
 @app.route('/esgotoAgua', methods=['GET','POST'])
 def esgotoAgua(): 
@@ -50,24 +58,59 @@ def esgotoAgua():
     if form.validate_on_submit():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para esgoto e água.' + picture_file)
+            arquivo.close()
         return render_template('index.html')
     return render_template('esgotoAgua.html',form=form)
 
 @app.route('/estruturasPublicas')
 def estruturasPublicas(): 
-    return render_template('estruturasPublicas.html')
+    form = EnviarForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para estruturas públicas.' + picture_file)
+            arquivo.close()
+        return render_template('index.html')
+    return render_template('estruturasPublicas.html',form=form)
 
 @app.route('/seguranca')
 def seguranca(): 
-    return render_template('seguranca.html')
+    form = EnviarForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para estruturas públicas.' + picture_file)
+            arquivo.close()
+        return render_template('index.html')
+    return render_template('seguranca.html',form=form)
 
 @app.route('/transporte')
 def transporte(): 
-    return render_template('transporte.html')
+    form = EnviarForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para transporte.' + picture_file)
+            arquivo.close()
+        return render_template('index.html')
+    return render_template('transporte.html',form=form)
 
 @app.route('/viasPublicas')
 def viasPublicas(): 
-    return render_template('viasPublicas.html')
+    form = EnviarForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            arquivo = open('textoCidadao.txt','a')
+            arquivo.write('\n\t Nova imagem para vias públicas.' + picture_file)
+            arquivo.close()
+        return render_template('index.html')
+    return render_template('viasPublicas.html',form=form)
 
 @app.route('/violencia', methods=['GET','POST'])
 def violencia(): 
@@ -79,7 +122,6 @@ def violencia():
             arquivo.write('\n\t Nova imagem para violência.' + picture_file)
             arquivo.close()
         return render_template('index.html')
-
     return render_template('violencia.html',form=form)
 
 # Essa função vai ser usada para salvar a imagem
