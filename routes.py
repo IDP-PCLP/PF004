@@ -64,7 +64,7 @@ def esgotoAgua():
         return render_template('index.html')
     return render_template('esgotoAgua.html',form=form)
 
-@app.route('/estruturasPublicas')
+@app.route('/estruturasPublicas', methods=['GET','POST'])
 def estruturasPublicas(): 
     form = EnviarForm()
     if form.validate_on_submit():
@@ -76,7 +76,7 @@ def estruturasPublicas():
         return render_template('index.html')
     return render_template('estruturasPublicas.html',form=form)
 
-@app.route('/seguranca')
+@app.route('/seguranca', methods=['GET','POST'])
 def seguranca(): 
     form = EnviarForm()
     if form.validate_on_submit():
@@ -88,7 +88,7 @@ def seguranca():
         return render_template('index.html')
     return render_template('seguranca.html',form=form)
 
-@app.route('/transporte')
+@app.route('/transporte', methods=['GET','POST'])
 def transporte(): 
     form = EnviarForm()
     if form.validate_on_submit():
@@ -100,7 +100,7 @@ def transporte():
         return render_template('index.html')
     return render_template('transporte.html',form=form)
 
-@app.route('/viasPublicas')
+@app.route('/viasPublicas', methods=['GET','POST'])
 def viasPublicas(): 
     form = EnviarForm()
     if form.validate_on_submit():
