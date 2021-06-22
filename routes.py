@@ -40,7 +40,7 @@ class EnviarForm(FlaskForm):
 def index(): 
     return render_template('index.html')
 
-@app.route('/lixo')
+@app.route('/lixo', methods=['GET','POST'])
 def lixo(): 
     form = EnviarForm()
     if form.validate_on_submit():
